@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +21,24 @@ namespace EGames.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.products.ToListAsync());
+        }
+        public async Task<IActionResult> BuyNow(int? id)
+        {
+            if (id == null || _context.products == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.products
+                .FirstOrDefaultAsync(m => m.Id == id);
+            HttpContext.Session.SetInt32("ProductId", product.Id);
+            HttpContext.Session.SetInt32("Price",product.Price);    
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction("Create", "Cart" );
         }
 
         // GET: Products/Details/5
@@ -55,13 +72,13 @@ namespace EGames.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Price,Image,Publisher")] Product product)
         {
-            if (ModelState.IsValid)
-            {
+           
                 _context.Add(product);
+                HttpContext.Session.SetString("Image", product.Image);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+            
+            
         }
 
         // GET: Products/Edit/5
@@ -77,6 +94,7 @@ namespace EGames.Controllers
             {
                 return NotFound();
             }
+            product.Image = HttpContext.Session.GetString("Image");
             return View(product);
         }
 
@@ -85,34 +103,19 @@ namespace EGames.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Image,Publisher")] Product product)
+        public async Task<IActionResult> Edit(int id,  Product product)
         {
             if (id != product.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+           
                     _context.Update(product);
                     await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+            
+            
         }
 
         // GET: Products/Delete/5

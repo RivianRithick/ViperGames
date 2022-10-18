@@ -1,10 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccesor
 
-
-
-
-
 <ul class="navbar-nav">
     @{
         ViewBag.Username = @HttpContextAccesor.HttpContext.Session.GetString("Username");
@@ -12,27 +8,45 @@
     }
     @if (ViewBag.Username != null)
     {
-        <li class="nav-item">
-            <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hello @ViewBag.Username</a>
-        </li>
-        <li class="nav-item">
-            <form>
-                @* class="form-inline" asp-route-returnUrl="@Url.Action("Login", "Login", new { area = "" })">*@
-                <button id="Logout" type="submit" class="nav-link btn btn-link text-dark" asp-controller="User" asp-action="Logout">Logout</button>
-            </form>
-        </li>
+        
+        <div class="dropdown">
+            <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Account
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="nav-item">
+                    <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hi Admin @ViewBag.name</a>
+                </li>
+                <li class="nav-item">
+                    <form>
+                        @* class="form-inline" asp-route-returnUrl="@Url.Action("Login", "Login", new { area = "" })">*@
+                        <button id="Logout" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Admin" asp-action="Logout">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     }
     else if (ViewBag.name != null)
     {
-        <li class="nav-item">
-            <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hello @ViewBag.name</a>
-        </li>
-        <li class="nav-item">
+        <div class="dropdown">
+        <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li class="nav-item">
+                <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hi @ViewBag.name</a>
+            </li>
+            <li class="nav-item">
             <form>
                 @* class="form-inline" asp-route-returnUrl="@Url.Action("Login", "Login", new { area = "" })">*@
+                <button id="Cart" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Cart" asp-action="Index">Cart</button>
+
                 <button id="Logout" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Admin" asp-action="Logout">Logout</button>
             </form>
         </li>
+        </ul>
+        </div>
+        
     }
     else
     {

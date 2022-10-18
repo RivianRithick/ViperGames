@@ -1,0 +1,43 @@
+﻿@model EGames.Models.Cart
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "UserProductLayout";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.product.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.product.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.product.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.product.Image)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="/Image/@Model.product.Image" alt="Image" height="100" width="100" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.product.Publisher)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.product.Publisher)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model?.CartId">Edit</a> |*@
+    <a asp-action="Index">Back to List</a>
+</div>

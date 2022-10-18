@@ -1,0 +1,82 @@
+﻿@model IEnumerable<EGames.Models.Cart>
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Index";
+    ViewBag.UserId = @HttpContextAccessor.HttpContext.Session.GetInt32("Id");
+    Layout = "UserProductLayout";
+
+}
+
+<h1>Cart Items</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    @if(item.Userid==ViewBag.UserId)
+    {
+        <tr>
+            <td>
+            @Html.DisplayFor(modelItem => item.product.Name)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.TotalAmt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            
+           
+           @* <td>
+                @Html.DisplayFor(modelItem => item.user.Id)
+            </td>*@
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.CartId">Edit</a>*@ 
+                <a asp-action="Details" asp-route-id="@item.CartId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CartId">Delete</a>
+            </td>
+        </tr>
+}
+}
+    </tbody>
+    @if(ViewBag.ErrorMessage!= null)
+    {
+        <div class="text-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+    else
+    {
+    <form asp-controller="Cart" asp-action="ProceedToBuy">
+
+
+
+       <div class="form-group">
+            <input type="submit" value="Buy" class="btn btn-primary" />
+        </div>
+
+
+
+   </form>
+    }
+</table>

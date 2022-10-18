@@ -25,6 +25,7 @@ namespace EGames.Controllers
                           select i).SingleOrDefault();
             if (result != null)
             {
+                HttpContext.Session.SetInt32("Id", result.Id);
                 HttpContext.Session.SetString("name", result.Name);
                 return RedirectToAction("Index", "Products");
             }
