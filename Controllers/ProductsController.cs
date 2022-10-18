@@ -91,7 +91,7 @@ namespace EGames.Controllers
 
             var product = await _context.products.FindAsync(id);
             if (product == null)
-            {
+            {       
                 return NotFound();
             }
             product.Image = HttpContext.Session.GetString("Image");
@@ -104,7 +104,7 @@ namespace EGames.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,  Product product)
-        {
+        {    
             if (id != product.Id)
             {
                 return NotFound();
