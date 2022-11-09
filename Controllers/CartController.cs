@@ -231,11 +231,8 @@ namespace EGames.Controllers
         public IActionResult GetPayment(OrderMaster m)
         {
 
-
-
-
-            if (m.AmountPaid == m.TotalAmount)
-            {
+            m.AmountPaid = m.TotalAmount;
+            
                 var UserId = HttpContext.Session.GetInt32("Userid");
                 List<Cart> cart = (from i in _context.carts where i.Userid == UserId select i).ToList();
                 var pid = (int)HttpContext.Session.GetInt32("Id");
@@ -258,12 +255,8 @@ namespace EGames.Controllers
 
 
                 return RedirectToAction("Thankyou");
-            }
-            else
-            {
-                ViewBag.ErrorMessage = "amount not valid";
-                return View(m);
-            }
+            
+           
 
 
 

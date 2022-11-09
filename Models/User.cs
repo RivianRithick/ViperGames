@@ -16,6 +16,8 @@ namespace EGames.Models
         public string Gmail { get; set; }
 
         public string Password { get; set; }
+
+     
         public virtual ICollection<Cart> carts { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails
         { get; set; }

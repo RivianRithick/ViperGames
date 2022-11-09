@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wz0bXcCxokoDLfjma5F74qnYW9OdHUCpWc4c/xp35+o=",
+  "Hash": "sH/nDok4LQzaHARTZKhE2zUl9LNM5mNggSMm4jb8B2g=",
   "Source": "EGames",
   "BasePath": "_content/EGames",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\Assassin's_Creed_Valhalla_cover.jpg",
+      "SourceId": "EGames",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\",
+      "BasePath": "_content/EGames",
+      "RelativePath": "Image/Assassin's_Creed_Valhalla_cover.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Assassin's_Creed_Valhalla_cover.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\control.jfif",
       "SourceId": "EGames",
       "SourceType": "Discovered",
@@ -1154,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\DMC-5.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\dmc-5n.jfif",
+      "SourceId": "EGames",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\",
+      "BasePath": "_content/EGames",
+      "RelativePath": "Image/dmc-5n.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\dmc-5n.jfif"
     },
     {
       "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\Far_Cry_1_boxshot.jpg.jpg",
@@ -1207,6 +1241,23 @@
       "OriginalItemSpec": "wwwroot\\Image\\gow.jfif"
     },
     {
+      "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\images.jpeg",
+      "SourceId": "EGames",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\",
+      "BasePath": "_content/EGames",
+      "RelativePath": "Image/images.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\images.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\prototype.jfif",
       "SourceId": "EGames",
       "SourceType": "Discovered",
@@ -1222,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\prototype.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\Image\\valo.jfif",
+      "SourceId": "EGames",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\",
+      "BasePath": "_content/EGames",
+      "RelativePath": "Image/valo.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\valo.jfif"
     },
     {
       "Identity": "C:\\Users\\Rithick-1\\source\\repos\\EGames\\wwwroot\\js\\site.js",

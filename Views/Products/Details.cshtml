@@ -6,10 +6,9 @@
 
 }
 
-<h1>Details</h1>
+@*<h1>Details</h1>
 
 <div>
-    <h4>Product</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -39,6 +38,57 @@
     </dl>
 </div>
 <div>
-    @*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
+</div>*@
+
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-info">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="/Image/@Model.Image" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <b>Description: </b>
+                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text"><b>Name: </b>@Model.Name</p>
+                        <p class="card-text"><b>Publisher: </b>@Model.Publisher</p>
+                        <p class="card-text"><b>Price: </b>@Model.Price</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                                Back to List
+                            </a>
+                            @if (ViewBag.name != null)
+                            {
+                            <a class="btn btn-success text-white float-end
+                               asp-controller="Products"
+                               asp-action="BuyNow" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))
+                           </a>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+

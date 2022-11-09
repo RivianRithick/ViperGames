@@ -8,6 +8,9 @@
     Layout = "UserProductLayout";
 
 }
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
 
 @*<table class="table">
@@ -122,14 +125,14 @@
                                     @item.Name
                                     @if (ViewBag.Username != null)
                                     {
-                                        <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit</a>
+                                        <a class="text-white float-end" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
                                     }
                                 </h5>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="/Image/@item.Image" width="100%" alt="@item.Name">
+                        <img src="/Image/@item.Image" width="100%" height="100%" alt="@item.Name">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
@@ -138,21 +141,53 @@
                             <p class="card-text"><b>Price: </b>@item.Price</p>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="card-footer ">
-                            <p class="card-text">
-                                <a class="btn btn-success text-white"
-                               asp-controller="Cart"
-                               asp-action="Create"
+
+                    
+                    @if (ViewBag.name != null)
+                    {
+
+
+                        <div class="col-md-12">
+                            <div class="card-footer ">
+                                <p class="card-text">
+                                    <a class="btn btn-success text-white float-end"
+                               asp-controller="Products"
+                               asp-action="BuyNow"
                                asp-route-id="@item.Id">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price ₹@item.Price)
-                                </a>
-                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
-                                    <i class="bi bi-eye-fill"></i> Show Details
-                                </a>
-                            </p>
+                                        <i class="bi bi-cart-plus"></i> Add to Cart (₹@item.Price)
+                                    </a>
+                                    <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                        <i class="bi bi-eye-fill"></i> Show Details
+                                    </a>
+                                </p> 
+                            </div>
                         </div>
-                    </div>
+                    }
+                    
+                    else
+                    {
+                        @if (ViewBag.Username != null)
+                        {
+                            <div class="col-md-12">
+                                <div class="card-footer ">
+                                    <p class="card-text">
+                                        <a class="btn btn-outline-primary float-right"
+                               asp-controller="Products"
+                               asp-action="Details"
+                               asp-route-id="@item.Id">
+                                            <i class="bi bi-eye-fill"></i> Show Details
+                                        </a>
+                                        <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@item.Id">
+                                            <i class="bi bi-trash3-fill"></i> Delete
+                                        </a>
+                                       
+                                    </p>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    
                 </div>    
             </div>
         </div>

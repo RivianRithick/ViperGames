@@ -1,6 +1,7 @@
 ﻿using EGames.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Runtime.Intrinsics.X86;
 
 namespace EGames.Controllers
@@ -36,8 +37,10 @@ namespace EGames.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Products");
         }
+
+       
 
 
 

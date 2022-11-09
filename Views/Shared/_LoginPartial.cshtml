@@ -6,61 +6,93 @@
         ViewBag.Username = @HttpContextAccesor.HttpContext.Session.GetString("Username");
         ViewBag.name = @HttpContextAccesor.HttpContext.Session.GetString("name");
     }
+
     @if (ViewBag.Username != null)
     {
-        
         <div class="dropdown">
-            <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Account
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-badge"></i> Hello @ViewBag.Username
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li class="nav-item">
-                    <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hi Admin @ViewBag.name</a>
+            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                <li>
+                    <a class="dropdown-item" asp-controller="Master" asp-action="Index">
+                        <i class="bi bi-list"></i> Orders
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <form>
-                        @* class="form-inline" asp-route-returnUrl="@Url.Action("Login", "Login", new { area = "" })">*@
-                        <button id="Logout" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Admin" asp-action="Logout">Logout</button>
-                    </form>
+                <li>
+                    <a class="dropdown-item" asp-controller="UserDetail" asp-action="Index">
+                        <i class="bi bi-people"></i> Users
+                    </a>
                 </li>
+                <li>
+                    <a class="dropdown-item" asp-controller="Products" asp-action="Create">
+                        <i class="bi bi-plus-circle"></i> Add Games
+                    </a>
+                </li>
+               
+                
+                
+
             </ul>
         </div>
+        <span style="padding: 5px;"></span>
+
+        <form asp-controller="Admin" asp-action="Logout">
+            <button class="btn btn-outline-danger my-2 my-sm-0">
+                <i class="bi bi-box-arrow-in-right"></i> Log out
+            </button>
+        </form>
     }
     else if (ViewBag.name != null)
     {
         <div class="dropdown">
-        <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li class="nav-item">
-                <a @*id="Manage"*@ class="nav-link text-dark" @*asp-controller="Home" asp-action="Privacy"*@ title="Manage">Hi @ViewBag.name</a>
-            </li>
-            <li class="nav-item">
-            <form>
-                @* class="form-inline" asp-route-returnUrl="@Url.Action("Login", "Login", new { area = "" })">*@
-                <button id="Cart" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Cart" asp-action="Index">Cart</button>
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-badge"></i> Hello @ViewBag.name
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                <li>
+                    <a class="dropdown-item" asp-controller="Cart" asp-action="Index">
+                        <i class="bi bi-list"></i> Cart
+                    </a>
+                </li>
 
-                <button id="Logout" type="submit" class="nav-link btn btn-link text-dark" asp-controller="Admin" asp-action="Logout">Logout</button>
-            </form>
-        </li>
-        </ul>
+            </ul>
         </div>
+        <span style="padding: 5px;"></span>
+
+        <form asp-controller="Admin" asp-action="Logout">
+            <button class="btn btn-outline-danger my-2 my-sm-0">
+                <i class="bi bi-box-arrow-in-right"></i> Log out
+            </button>
+        </form>
+        
         
     }
     else
     {
+        
         <div class="dropdown">
-            <button class="btn btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Login
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-badge"></i> Login
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="User/Login">User</a></li>
-                <li><a class="dropdown-item" href="Admin/Login">Admin</a></li>
+
+            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                <li>
+                    <a class="dropdown-item" href="User/Login">
+                        <i class="bi bi-list"></i> User
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="Admin/Login">
+                        <i class="bi bi-person"></i> Admin
+                    </a>
+                </li>
+
             </ul>
         </div>
+        <span style="padding: 5px;"></span>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="User" asp-action="Register">Register</a>
+            <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="User" asp-action="Register">Register</a>
         </li>
     }
 </ul>

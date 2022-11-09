@@ -19,6 +19,8 @@ namespace EGames.Models
 
         public string Publisher { get; set; }
 
+        public string? Description { get; set; } 
+
         public virtual ICollection<Cart> carts
         { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails

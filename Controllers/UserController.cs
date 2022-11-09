@@ -1,6 +1,7 @@
 ﻿using EGames.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EGames.Controllers
 {
@@ -47,6 +48,12 @@ namespace EGames.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Users()
+        {
+            var users = await db.users.ToListAsync();
+            return View(users);
         }
 
 

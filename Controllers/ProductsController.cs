@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EGames.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EGames.Controllers
 {
@@ -159,5 +160,6 @@ namespace EGames.Controllers
         {
           return _context.products.Any(e => e.Id == id);
         }
+        
     }
 }
